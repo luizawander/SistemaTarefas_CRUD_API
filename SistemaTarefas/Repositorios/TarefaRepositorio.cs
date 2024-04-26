@@ -34,16 +34,16 @@ namespace SistemaTarefas.Repositorios
             _dbContext.Tarefa.Remove(tarefaPorId);
             await _dbContext.SaveChangesAsync();
             return true;
-             
+
         }
 
         public async Task<TarefaModel> Atualizar(TarefaModel tarefa, int id) //ok
         {
             TarefaModel tarefaPorId = await BuscarPorID(id);
-            
-            if (tarefaPorId == null) 
-            {  
-                throw new Exception($"Tarefa não encontrada para o ID: {id}"); 
+
+            if (tarefaPorId == null)
+            {
+                throw new Exception($"Tarefa não encontrada para o ID: {id}");
             }
 
             tarefaPorId.Nome = tarefa.Nome;
